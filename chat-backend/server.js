@@ -15,7 +15,7 @@ import { fileURLToPath } from "url";
 import path from "path";
 
 // security packages
-import helmet from "helmet";
+// import helmet from "helmet";
 import xss from "xss-clean";
 import mongoSanitize from "express-mongo-sanitize";
 
@@ -25,14 +25,15 @@ const rooms = ["General", "Technology", "Coding", "Crypto"];
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(
-  helmet.contentSecurityPolicy({
-    useDefaults: true,
-    directives: {
-      "img-src": ["'self'", "https: data:"],
-    },
-  })
-);
+// app.use(
+//   helmet.contentSecurityPolicy({
+//     useDefaults: true,
+//     directives: {
+//       "img-src": ["'self'", "https: data:"],
+//     },
+//   })
+// );
+
 app.use(xss());
 app.use(mongoSanitize());
 
