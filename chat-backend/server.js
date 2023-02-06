@@ -54,11 +54,11 @@ app.get("*", (req, res) => {
 });
 
 const server = http.createServer(app);
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 5000;
 
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: "http://localhost:5000",
     method: ["GET", "POST"],
   },
 });
